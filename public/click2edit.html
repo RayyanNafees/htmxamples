@@ -4,15 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Click To Edit</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@1.5.11/css/pico.min.css"
+    />
+    <style>
+      body {
+        overflow: hidden;
+      }
+    </style>
   </head>
   <body>
-    <div hx-target="this" hx-swap="outerHTML">
-      <div><label>First Name</label>: Joe</div>
-      <div><label>Last Name</label>: Blow</div>
-      <div><label>Email</label>: joe@blow.com</div>
-      <button hx-get="/contact/1/edit" class="btn btn-primary">
-        Click To Edit
-      </button>
-    </div>
+    <main class="container">
+      <article
+        hx-target="this"
+        hx-swap="outerHTML"
+        hx-trigger="load"
+        hx-get="/contact/1"
+      ></article>
+    </main>
   </body>
 </html>

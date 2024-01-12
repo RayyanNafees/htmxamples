@@ -1,5 +1,4 @@
 import { Html } from '@elysiajs/html'
-
 export default (props: Html.PropsWithChildren) => (
   <html lang='en'>
     <head>

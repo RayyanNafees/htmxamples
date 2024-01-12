@@ -1,3 +1,3 @@
 import links from './links'
-
-export {links}
+import edit from './contact2edit'
+export {links, edit}
