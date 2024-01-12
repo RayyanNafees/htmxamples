@@ -1,13 +1,12 @@
 import { Elysia } from 'elysia'
 import { html } from '@elysiajs/html'
-import { edit, links } from '@/routes'
-import staticPlugin from '@elysiajs/static'
+import { edit } from '@/routes'
+import home from './routes/home'
 
 const app = new Elysia()
   .use(html())
-  .use(staticPlugin({ prefix: '' }))
 
-  .use(links)
+  .use(home)
   .use(edit)
 
   .listen(3000)
