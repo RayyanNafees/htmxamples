@@ -1,12 +1,13 @@
 import { Elysia, t } from 'elysia'
 import Form from '@/components/click2edit/form'
 import View from '@/components/click2edit/view'
+import { faker } from '@faker-js/faker'
 
 export default new Elysia({ prefix: '/contact/1' })
   .state('contact', {
-    firstname: 'Joe',
-    lastname: 'Blow',
-    email: 'joe@blow.com',
+    firstname: faker.person.firstName(),
+    lastname: faker.person.lastName(),
+    email: faker.internet.exampleEmail(),
   })
   .get('/edit', (c) => <Form contact={c.store.contact} />)
   .get('/', (c) => <View contact={c.store.contact} />)

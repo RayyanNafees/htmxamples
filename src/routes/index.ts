@@ -1,2 +1,3 @@
 import edit from './contact2edit'
-export {edit}
+import bulkUpdate from './bulk-update'
+export {edit, bulkUpdate}

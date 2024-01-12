@@ -1,6 +1,6 @@
 import { Elysia } from 'elysia'
 import { html } from '@elysiajs/html'
-import { edit } from '@/routes'
+import { bulkUpdate, edit } from '@/routes'
 import home from './routes/home'
 
 const app = new Elysia()
@@ -8,6 +8,7 @@ const app = new Elysia()
 
   .use(home)
   .use(edit)
+  .use(bulkUpdate)
 
   .listen(3000)
 

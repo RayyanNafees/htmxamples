@@ -1,0 +1,14 @@
+[
+  {
+    "slug": "click-to-edit",
+    "title": "Click To Edit",
+    "href": "/contact/1",
+    "htmx": "https://htmx.org/examples/click-to-edit/"
+  },
+  {
+    "slug": "bulk-update",
+    "title": "Bulk Update",
+    "htmx": "https://htmx.org/examples/bulk-update/",
+    "href": "/bulk/contact"
+  }
+]
