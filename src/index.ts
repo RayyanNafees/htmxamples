@@ -1,6 +1,6 @@
 import { Elysia } from 'elysia'
 import { html } from '@elysiajs/html'
-import { bulkUpdate, edit, click2load, deleteRow } from '@/routes'
+import { bulkUpdate, edit, click2load, deleteRow, dialog } from '@/routes'
 
 import home from './routes/home'
 import staticPlugin from '@elysiajs/static'
@@ -13,6 +13,7 @@ const app = new Elysia()
   .use(bulkUpdate)
   .use(click2load)
   .use(deleteRow)
+  .use(dialog)
 
   .listen(3000)
 

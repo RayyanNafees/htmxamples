@@ -13,10 +13,17 @@
     "slug": "click-to-load",
     "title": "Click to Load",
     "htmx": "https://htmx.org/examples/click-to-load/"
-  },
+  }
+  ,
   {
     "slug": "delete-row",
     "title": "Delete Row",
     "htmx": "https://htmx.org/examples/delete-row/"
+  }
+  ,
+  {
+    "slug": "dialog",
+    "title": "Dialog (Browser)",
+    "htmx": "https://htmx.org/examples/dialogs/"
   }
 ]
