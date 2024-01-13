@@ -1,12 +1,9 @@
+import { Contact } from "@/utils/contacts"
+
 export default ({
   contacts,
 }: {
-  contacts: Array<{
-    name: string
-    email: string
-    status: boolean
-    class: 'activate' | 'deactivate' | ''
-  }>
+  contacts: Array<Contact>
 }) => (
   <tbody id='tbody' hx-swap='outerHTML'>
     {contacts.map((contact, id) => (

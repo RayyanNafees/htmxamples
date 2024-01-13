@@ -2,19 +2,21 @@
   {
     "slug": "click-to-edit",
     "title": "Click To Edit",
-    "href": "/contact/1",
     "htmx": "https://htmx.org/examples/click-to-edit/"
   },
   {
     "slug": "bulk-update",
     "title": "Bulk Update",
-    "htmx": "https://htmx.org/examples/bulk-update/",
-    "href": "/bulk/contact"
+    "htmx": "https://htmx.org/examples/bulk-update/"
   },
   {
     "slug": "click-to-load",
     "title": "Click to Load",
-    "htmx": "https://htmx.org/examples/click-to-load/",
-    "href": "/load/contacts"
+    "htmx": "https://htmx.org/examples/click-to-load/"
+  },
+  {
+    "slug": "delete-row",
+    "title": "Delete Row",
+    "htmx": "https://htmx.org/examples/delete-row/"
   }
 ]

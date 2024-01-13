@@ -1,16 +1,18 @@
 import { Elysia } from 'elysia'
 import { html } from '@elysiajs/html'
-import { bulkUpdate, edit, click2load } from '@/routes'
+import { bulkUpdate, edit, click2load, deleteRow } from '@/routes'
+
 import home from './routes/home'
 import staticPlugin from '@elysiajs/static'
 
 const app = new Elysia()
   .use(html())
-  .use(staticPlugin({prefix:''}))
+  .use(staticPlugin({ prefix: '' }))
   .use(home)
   .use(edit)
   .use(bulkUpdate)
   .use(click2load)
+  .use(deleteRow)
 
   .listen(3000)
 

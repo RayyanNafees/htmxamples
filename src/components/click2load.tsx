@@ -1,3 +1,4 @@
+import { Contact } from '@/utils/contacts'
 import { Suspense } from '@elysiajs/html'
 
 export default ({
@@ -5,11 +6,7 @@ export default ({
   page,
 }: {
   page: number
-  contacts: Array<{
-    name: string
-    email: string
-    status: boolean
-  }>
+  contacts: Array<Contact>
 }) => (
   <>
     {contacts.map((contact) => (

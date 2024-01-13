@@ -1,24 +1,15 @@
 import { Elysia, t } from 'elysia'
 import { faker } from '@faker-js/faker'
-import List from '@/components/bulk-update/list'
+import List from '@/components/bulk-update'
+import getContacts, { type Contact } from '@/utils/contacts'
 
 export default new Elysia()
   .state(
     'contacts',
-    Array(5)
-      .fill(0)
-      .map((_, n) => {
-        const firstName = faker.person.firstName(),
-          lastName = faker.person.lastName()
-
-        return {
-          id: n,
-          name: firstName + ' ' + lastName,
-          email: faker.internet.email({ firstName, lastName }),
-          status: faker.datatype.boolean(),
-          class: '' as '' | 'activate' | 'deactivate',
-        }
-      })
+    getContacts(5, {
+      status: () => faker.datatype.boolean(),
+      class: () => '',
+    }) as Array<Contact>
   )
   .get('/bulk/contact', (c) => <List contacts={c.store.contacts} />)
   .put(

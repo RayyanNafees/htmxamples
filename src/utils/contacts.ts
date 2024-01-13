@@ -1,5 +1,13 @@
 import { faker } from '@faker-js/faker'
 
+export type Contact = {
+  id: number
+  name: string
+  email: string
+  status: boolean
+  class: '' | 'activate' | 'deactivate'
+}
+
 export default (
   n: number,
   include: Record<string, Function> = {},
