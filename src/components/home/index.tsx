@@ -5,7 +5,7 @@ export default ({
 }: {
   links: Array<{
     title: string
-    href: string
+    slug: string
     htmx: string
   }>
 }) => (
@@ -16,7 +16,7 @@ export default ({
         <ul>
           {links.map(async (link) => (
             <li style={{ display: 'list-item', listStyleType: `"\\1F517"` }}>
-              <a href={link.href}>{link.title}</a>
+              <a href={link.slug+'.html'}>{link.title}</a>
               <small>
                 <a class='secondary' href={link.htmx || ''}>
                   htmx example

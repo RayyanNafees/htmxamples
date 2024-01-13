@@ -8,7 +8,7 @@ export default ({
     class: 'activate' | 'deactivate' | ''
   }>
 }) => (
-  <>
+  <tbody id='tbody' hx-swap='outerHTML'>
     {contacts.map((contact, id) => (
       <tr class={contact.class}>
         <td>
@@ -21,5 +21,5 @@ export default ({
         </td>
       </tr>
     ))}
-  </>
+  </tbody>
 )

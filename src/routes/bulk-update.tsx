@@ -1,5 +1,4 @@
 import { Elysia, t } from 'elysia'
-import BulkUpdate from '@/components/bulk-update'
 import { faker } from '@faker-js/faker'
 import List from '@/components/bulk-update/list'
 
@@ -21,11 +20,7 @@ export default new Elysia()
         }
       })
   )
-  .get('/bulk/contact', (c) => (
-    <BulkUpdate>
-      <List contacts={c.store.contacts} />
-    </BulkUpdate>
-  ))
+  .get('/bulk/contact', (c) => <List contacts={c.store.contacts} />)
   .put(
     '/bulk/activate',
     ({ body: { ids }, store: { contacts } }) => {
@@ -62,4 +57,3 @@ export default new Elysia()
       body: t.Object({ ids: t.Array(t.String()) }),
     }
   )
-  .get('/bulk/flash.css', Bun.file('./src/components/bulk-update/flash.css'))

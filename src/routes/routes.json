@@ -10,5 +10,11 @@
     "title": "Bulk Update",
     "htmx": "https://htmx.org/examples/bulk-update/",
     "href": "/bulk/contact"
+  },
+  {
+    "slug": "click-to-load",
+    "title": "Click to Load",
+    "htmx": "https://htmx.org/examples/click-to-load/",
+    "href": "/load/contacts"
   }
 ]
