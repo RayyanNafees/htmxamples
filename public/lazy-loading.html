@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lazy Load</title>
+  <script src="//unpkg.com/htmx.org"></script>
+  <link rel="stylesheet" href="./assets/fade-in.css">
+</head>
+<body>
+  <div hx-trigger="load" hx-get="/graph">
+    <img src="https://htmx.org/img/bars.svg" height="100" width="150" class="htmx-indicator" alt="Loading..."/>
+  </div>
+</body>
+</html>

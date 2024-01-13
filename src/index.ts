@@ -1,6 +1,6 @@
 import { Elysia } from 'elysia'
 import { html } from '@elysiajs/html'
-import { bulkUpdate, edit, click2load, deleteRow, dialog } from '@/routes'
+import { bulkUpdate, edit, click2load, deleteRow, dialog, lazyLoading } from '@/routes'
 
 import home from './routes/home'
 import staticPlugin from '@elysiajs/static'
@@ -14,7 +14,7 @@ const app = new Elysia()
   .use(click2load)
   .use(deleteRow)
   .use(dialog)
-
+  .use(lazyLoading)
   .listen(3000)
 
 console.log(`🦊 Elysia is running at ${app.server?.url}`)

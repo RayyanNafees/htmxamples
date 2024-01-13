@@ -20,6 +20,11 @@
     "title": "Delete Row",
     "htmx": "https://htmx.org/examples/delete-row/"
   }
+  ,{
+    "slug":"lazy-loading",
+    "title":"Lazy Loading",
+    "htmx": "https://htmx.org/examples/lazy-load/"
+  }
   ,
   {
     "slug": "dialog",
