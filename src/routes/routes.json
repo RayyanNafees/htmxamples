@@ -33,5 +33,10 @@
     "slug": "dialog",
     "title": "Dialog (Browser)",
     "htmx": "https://htmx.org/examples/dialogs/"
+  },
+  {
+    "slug": "infinite-scroll",
+    "title": "Infinite Scroll",
+    "htmx": "https://htmx.org/examples/infinite-scroll/"
   }
 ]

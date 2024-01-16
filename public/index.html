@@ -19,13 +19,11 @@
     <main class="container">
       <aside>
         <h1>HTMX Examples using PicoCSS + Bun Elysia</h1>
-        <progress class="htmx-indicator"></progress>
         <ul
           hx-ext="client-side-templates"
           handlebars-array-template="foo"
           hx-get="../src/routes/routes.json"
           hx-trigger="load"
-          hx-indicator="progress"
         ></ul>
       </aside>
     </main>

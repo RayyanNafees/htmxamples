@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infinite Scroll</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@1.5.11/css/pico.min.css"
+    />
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10/dist/ext/client-side-templates.js"></script>
+    <script src="https://unpkg.com/handlebars@latest/dist/handlebars.min.js"></script>
+    <script>
+      let page = 0
+      let perPage = 10
+      let skip = () => {
+        ++page
+        return (page - 1) * perPage
+      }
+
+      Handlebars.registerHelper('isId10', (val) => !(val % perPage))
+      Handlebars.registerHelper('name', function () {
+        return `${this.firstName} ${this.lastName}`
+      })
+    </script>
+  </head>
+  <body>
+    <main class="container">
+      <article>
+        <h1>Infinite Loading</h1>
+        <table
+          hx-ext="client-side-templates"
+          handlebars-array-template="foo"
+          hx-vals="js:{skip: skip(), 'limit': perPage}"
+          hx-indicator="progress"
+          hx-trigger="revealed"
+          hx-target="tbody"
+          hx-swap="beforeend"
+        >
+          <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+          </thead>
+          <tbody>
+            <tr
+              hx-get="https://dummyjson.com/users"
+              hx-trigger="load"
+              hx-swap="outerHTML"
+              hx-target="this"
+            ></tr>
+          </tbody>
+        </table>
+        <progress class="htmx-indicator"></progress>
+      </article>
+    </main>
+    <template id="foo">
+      {{#each users}} {{#if (isId10 id)}}
+      <tr hx-get="https://dummyjson.com/users" hx-trigger="revealed">
+        <td>{{id}}</td>
+        <td>{{name}}</td>
+        <td>{{email}}</td>
+        <td>{{phone}}</td>
+      </tr>
+      {{else}}
+      <tr>
+        <td>{{id}}</td>
+        <td>{{name}}</td>
+        <td>{{email}}</td>
+        <td>{{phone}}</td>
+      </tr>
+      {{/if}} {{/each}}
+    </template>
+  </body>
+</html>
