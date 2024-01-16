@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Active Search</title>
+    <script src="https://unpkg.com/htmx.org"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/debug.js"></script>
+
+    <script src="https://unpkg.com/handlebars@latest/dist/handlebars.min.js"></script>
+
+    <script>
+      Handlebars.registerHelper('first', (text) => text?.split(' ')[0])
+      Handlebars.registerHelper('last', (text) => text?.split(' ').at(-1))
+    </script>
+    <link rel="stylesheet" href="//unpkg.com/@picocss/pico" />
+  </head>
+  <body>
+    <main class="container">
+      <article>
+        <input
+          type="search"
+          name="name_like"
+          id="search"
+          placeholder="Search contact"
+          hx-ext="client-side-templates"
+          handlebars-array-template="foo"
+          hx-get="https://jsonplaceholder.typicode.com/users/"
+          hx-swap="innerHTML"
+          hx-target="#search-results"
+          hx-trigger="input changed delay:500ms, search"
+          hx-indicator="progress"
+        />
+        <table role="grid">
+          <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+          </thead>
+          <tbody id="search-results"></tbody>
+        </table>
+        <progress class="htmx-indicator"></progress>
+      </article>
+    </main>
+
+    <template id="foo">
+      {{#each this}}
+      <tr>
+        <td>{{first name}}</td>
+        <td>{{last name}}</td>
+        <td>{{email}}</td>
+      </tr>
+      {{/each}}
+    </template>
+  </body>
+</html>

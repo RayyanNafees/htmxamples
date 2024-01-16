@@ -1,1 +1,0 @@
-htmx.config.useTemplateFragments = true;

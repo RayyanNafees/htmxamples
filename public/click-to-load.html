@@ -9,7 +9,9 @@
       rel="stylesheet"
       href="https://unpkg.com/@picocss/pico@1.5.11/css/pico.min.css"
     />
-    <script defer src="./assets/htmx.config.js"></script>
+    <script>
+      htmx.config.useTemplateFragments = true;
+    </script>
   </head>
   <body>
     <main class="container">

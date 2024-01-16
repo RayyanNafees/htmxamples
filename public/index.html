@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMX Examples</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10/dist/ext/client-side-templates.js"></script>
+    <script src="https://unpkg.com/handlebars@latest/dist/handlebars.min.js"></script>
+    <script>
+      Handlebars.registerHelper('html', (text) => text + '.html')
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@1.5.11/css/pico.min.css"
+    />
+  </head>
+  <body>
+    <main class="container">
+      <aside>
+        <h1>HTMX Examples using PicoCSS + Bun Elysia</h1>
+        <progress class="htmx-indicator"></progress>
+        <ul
+          hx-ext="client-side-templates"
+          handlebars-array-template="foo"
+          hx-get="../src/routes/routes.json"
+          hx-trigger="load"
+          hx-indicator="progress"
+        ></ul>
+      </aside>
+    </main>
+    <template id="foo">
+      {{#each this}}
+      <li style="display: list-item; list-style-type: '\1F517'">
+        <a href="{{html slug}}">{{title}}</a>
+        <small>
+          <a class="secondary" href="{{htmx}}"> htmx example </a>
+        </small>
+      </li>
+      {{/each}}
+    </template>
+  </body>
+</html>
